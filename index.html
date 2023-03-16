@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Sofia&effect=neon|emboss">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+	<title>Anukul | Web Developer</title>
+
+
+</head>
+<body>
+	<nav>
+		<h1><a href="#home" class="nav-link" >Anukul Agarwal</a></h1>
+		<ul>
+			<li><a href="#about" class="nav-link">About</a></li>
+			<li><a href="#Skills" class="nav-link">Skills</a></li>
+			<li><a href="#projects" class="nav-link">Projects</a></li>
+			<li><a href="#contact" class="nav-link" >Contact</a></li>
+		</ul>
+
+		<button class="burger-menu" id="burger-menu">
+			<i class="material-icons">menu</i>
+		</button>
+	</nav>
+
+	<header class="svg_L" id="home">
+		<svg viewBox="0 0 1250 900" >
+			<filter id="Full_L">
+				<feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
+				<feOffset result="offOut" in="SourceGraphic" dx="5" dy="5" />
+				<feGaussianBlur result="blurOut" in="offOut" stdDeviation="10"/>
+				<feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+
+
+			</filter>
+
+			<defs>
+				<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+					<stop offset="0%" style="stop-color:rgba(255,221,119,1); stop-opacity:1"/>
+					<stop offset="100%" style="stop-color: red; stop-opacity:0.5"/>
+				</linearGradient>
+
+			</defs>
+			<polygon points="659,62 778,308 722,308 741,354 796,354 879,554 825,554 741,354 573,354 481,554 426,554 518,353 573,354 598,308 722,308 658,170 598,308 539,308" stroke="white" stroke-width="1" stroke-linecap="round" fill="url(#grad1)" filter="url(#Full_L)" />
+
+			<text x="500" y="650" fill="rgba(255,221,119,1)" font-size="6rem" >ANUKUL</text>
+			<text x="540" y="700" fill="red" font-size="2rem">Web Developer</text>
+		</svg>
+	</header>
+
+	<section class="me" id="about">
+		<div class="bio bio_about bio_X">
+			<h1 class="bio-title">About Me</h1>
+			<p class="bio-text">I am a Student, Currently learning Front End Web Development and OOP in C++. I love solving coding challenges and Web Designing.</p>
+		</div>
+	</section>
+
+	<!-- <div id="Skills">
+		<h1 class="skillHead font-effect-emboss">Skills</h1>
+		<div class="cppbox">
+			<h2 id="cpp">C++</h2>
+		</div>
+
+		<div class="dsabox">
+			<h2 id="dsa">DSA</h2>
+
+		</div>
+
+		<div class="RpFEDbox">
+			<h2 id="RpFED">Responsive Front End Design</h2>
+		</div>
+		
+		
+	</div> -->
+
+	<section class="Skills" id="Skills">
+		<h2 class="skill-header">My Top Skills</h2>
+		<div class="skill-wraper">
+			<div class="first-set">
+				<img src="assets/icons/icons8-c-programming.svg" alt="C" loading="lazy"  class="icon icon-card" />
+				<img src="assets/icons/icons8-c++.svg" alt="C++" loading="lazy"  class="icon icon-card" />
+				<img src="assets/icons/icons8-javascript.svg" alt="JavaScript" loading="lazy"  class="icon icon-card" />
+			</div>
+			<div class="second-set">
+				<img src="assets/icons/icons8-html-5.svg" alt="HTML 5" loading="lazy"  class="icon icon-card" />
+				<img src="assets/icons/icons8-css3.svg" alt="CSS 3"  loading="lazy" class="icon icon-card" />
+				<img src="assets/icons/icons8-bootstrap.svg" alt="Bootstrap"  loading="lazy" class="icon icon-card" />
+
+			</div>
+		</div>
+	</section>
+
+
+	<section id="contact">
+		<div class="form-box">
+			<h1 class="contact-header">Get In Touch With Me</h1>
+
+			<div class="contact-form">
+				<form action="https://formspree.io/f/myyapabk" method="POST">
+				
+				<div class="form-control">
+					<label for="name">Name</label>
+					<input type="text" id="name" name="sender-name" class="input-field" placeholder="Name" required />
+				</div>
+
+
+				<div class="form-control">
+					<label for="email">Email</label>
+					<input type="email" id="email" name="sender-email" class="input-field" placeholder="Email" required/>
+				</div>
+
+				<div class="form-control">
+					<label for="message">Message</label>
+					<textarea id="message" cols="60" row="10" name="message" class="input-field" placeholder="Type your Message" required></textarea>
+				</div>
+
+				<div class="form-control">
+					<input type="submit" value="Submit" id="submit-btn" class="submit-btn">
+				</div>
+				
+				</form>
+			</div>
+		</div>
+	</section>
+
+
+
+	<footer class="foot">
+		<div class="foot-control">
+			<p>&copy Copyright <span id="date"></span></p>
+			<p>Made with &#128151 By Anukul</p>
+		</div>
+	</footer>
+
+
+	
+
+
+	<script type="text/javascript">
+		const burger = document.querySelector("#burger-menu");
+		const ul = document.querySelector("nav ul");
+		const nav = document.querySelector("nav");
+
+		burger.addEventListener("click",()=>{
+			ul.classList.toggle("show");
+		});
+
+		const navLink = document.querySelectorAll(".nav-link");
+
+		navLink.forEach((link)=>
+			link.addEventListener("click",()=>{
+				ul.classList.remove("show");
+			})
+		);
+
+		var date = new Date();
+		document.getElementById('date').innerHTML = date.getFullYear();
+	</script>
+
+
+
+</body>
+</html>
